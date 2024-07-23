@@ -58,8 +58,8 @@ const getClientes = async () => {
                     celda1.innerText = contador;
                     celda2.innerText = cliente.cli_nombre;
                     celda3.innerText = cliente.cli_apellido;
-                    celda4.innerText = cliente.clie_nit;
-                    celda5.innerText = cliente.clie_telefono;
+                    celda4.innerText = cliente.cli_nit;
+                    celda5.innerText = cliente.cli_telefono;
 
                     buttonModificar.textContent = 'Modificar'
                     buttonModificar.classList.add('btn', 'btn-warning', 'w-100')
@@ -101,7 +101,7 @@ const getClientes = async () => {
     }
 }
 
-getClientes();
+// getClientes();
 
 
 const guardarCliente = async (e) => {
@@ -119,7 +119,7 @@ const guardarCliente = async (e) => {
 
     try {
         const respuesta = await fetch(url, config);
-        const data = await respuesta.json();
+        const data = await respuesta.text();
         const { mensaje, codigo, detalle } = data
         Swal.mixin({
             toast: true,
