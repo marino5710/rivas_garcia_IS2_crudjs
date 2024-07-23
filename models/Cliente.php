@@ -8,7 +8,7 @@ class Cliente extends Conexion
     public $cli_apellido;
     public $cli_nit;
     public $cli_telefono;
-    public $producto_situacion;
+    public $cli_situacion;
 
 
     public function __construct($args = [])
@@ -18,13 +18,13 @@ class Cliente extends Conexion
         $this->cli_apellido = $args['cli_apellido'] ?? '';
         $this->cli_nit = $args['cli_nit'] ?? '';
         $this->cli_telefono = $args['cli_telefono'] ?? '';
-        $this->producto_situacion = $args['producto_situacion'] ?? '';
+        $this->cli_situacion = $args['cli_situacion'] ?? '';
 
     }
 
     public function guardar()
     {
-        $sql = "INSERT INTO clientes(cli_nombre, cli_apellido, cli_nit, cli_telefono) values('$this->cli_nombre','$this->cli_apellido', '$this->cli_nit', '$this->cli_telefono')";
+        $sql = "INSERT INTO clientes(cli_nombre, cli_apellido, cli_nit, cli_telefono) values('$this->cli_nombre','$this->cli_apellido','$this->cli_nit','$this->cli_telefono')";
         $resultado = self::ejecutar($sql);
         return $resultado;
     }
@@ -38,7 +38,15 @@ class Cliente extends Conexion
         }
 
         if ($this->cli_apellido != '') {
-            $sql .= " and cli_apellido = $this->cli_apellido ";
+            $sql .= " and cli_apellido like '$this->cli_apellido' ";
+        }
+
+        if ($this->cli_nit != null) {
+            $sql .= " and cli_nit = $this->cli_nit ";
+        }
+        
+        if ($this->cli_telefono != null) {
+            $sql .= " and cli_telefono = $this->cli_telefono ";
         }
 
         if ($this->cliente_id != null) {

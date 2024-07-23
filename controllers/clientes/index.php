@@ -14,7 +14,7 @@ try {
             switch ($tipo) {
                 case '1':
 
-                    $ejecucion = $producto->guardar();
+                    $ejecucion = $cliente->guardar();
                     $mensaje = "Guardado correctamente";
                     break;
 

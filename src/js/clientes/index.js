@@ -14,7 +14,7 @@ const getClientes = async () => {
     const apellido = formulario.cli_apellido.value
     const nit = formulario.cli_nit.value
     const telefono = formulario.cli_telefono.value
-    const url = `/RIVAS_GARCIA_IS2_CRUDJS/controllers/clientes/index.php?cli_nombre=${nombre}&cli_apellido=${apellido}&cli_nit=${nit}&cli_telefono=${telefono}`
+    const url = `/rivas_garcia_is2_crudjs/controllers/clientes/index.php?cli_nombre=${nombre}&cli_apellido=${apellido}&cli_nit=${nit}&cli_telefono=${telefono}`
     const config = {
         method: 'GET'
     }
@@ -85,7 +85,7 @@ const getClientes = async () => {
             } else {
                 const tr = document.createElement('tr')
                 const td = document.createElement('td')
-                td.innerText = 'No hay productos disponibles'
+                td.innerText = 'No hay Clientes Disponibles'
                 td.colSpan = 5;
 
                 tr.appendChild(td)
@@ -106,10 +106,10 @@ const getClientes = async () => {
 
 const guardarCliente = async (e) => {
     e.preventDefault();
-    btnGuardar.disabled = false;
-
-    const url = '/RIVAS_GARCIA_IS2_CRUDJS/controllers/clientes/index.php'
+    btnGuardar.disabled = true;
+    const url = '/rivas_garcia_is2_crudjs/controllers/clientes/index.php'
     const formData = new FormData(formulario)
+    console.log(formData)
     formData.append('tipo', 1)
     formData.delete('cliente_id')
     const config = {
