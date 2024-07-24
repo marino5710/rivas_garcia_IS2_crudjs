@@ -1,5 +1,5 @@
 <?php include_once '../../includes/header.php' ?>
-<div class="container">
+<div class="container mt-5">
     <h1 class="text-center">Formulario de Clientes</h1>
     <div class="row justify-content-center mb-3">
         <form class="col-lg-8 border bg-light p-3">

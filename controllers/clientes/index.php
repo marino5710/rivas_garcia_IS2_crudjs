@@ -18,17 +18,31 @@ try {
                     $mensaje = "Guardado correctamente";
                     break;
 
+                case '2':
+
+                    $ejecucion = $cliente->modificar();
+                    $mensaje = "Modificado correctamente";
+                    break;
+
+                case '3':
+
+                    $ejecucion = $cliente->eliminar();
+                    $mensaje = "Eliminado correctamente";
+                    break;
+
                 default:
 
                     break;
             }
+
             http_response_code(200);
             echo json_encode([
                 "mensaje" => $mensaje,
                 "codigo" => 1,
+
             ]);
             break;
-            
+
         case 'GET':
             http_response_code(200);
             $cliente = new Cliente($_GET);
